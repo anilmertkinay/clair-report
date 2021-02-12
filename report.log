@@ -1,0 +1,570 @@
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| STATUS     | CVE SEVERITY                | PACKAGE NAME | PACKAGE VERSION       | CVE DESCRIPTION                                              |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | High CVE-2019-25013         | glibc        | 2.28-10               | The iconv feature in the GNU C Library (aka                  |
+|            |                             |              |                       | glibc or libc6) through 2.32, when processing                |
+|            |                             |              |                       | invalid multi-byte input sequences in the                    |
+|            |                             |              |                       | EUC-KR encoding, may have a buffer over-read.                |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-25013   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2018-12886       | gcc-8        | 8.3.0-6               | stack_protect_prologue in cfgexpand.c and                    |
+|            |                             |              |                       | stack_protect_epilogue in function.c in GNU Compiler         |
+|            |                             |              |                       | Collection (GCC) 4.1 through 8 (under certain                |
+|            |                             |              |                       | circumstances) generate instruction sequences when           |
+|            |                             |              |                       | targeting ARM targets that spill the address of              |
+|            |                             |              |                       | the stack protector guard, which allows an attacker          |
+|            |                             |              |                       | to bypass the protection of -fstack-protector,               |
+|            |                             |              |                       | -fstack-protector-all, -fstack-protector-strong, and         |
+|            |                             |              |                       | -fstack-protector-explicit against stack overflow by         |
+|            |                             |              |                       | controlling what the stack canary is compared against.       |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2018-12886   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2019-3843        | systemd      | 241-7~deb10u5         | It was discovered that a systemd service that uses           |
+|            |                             |              |                       | DynamicUser property can create a SUID/SGID binary           |
+|            |                             |              |                       | that would be allowed to run as the transient service        |
+|            |                             |              |                       | UID/GID even after the service is terminated. A local        |
+|            |                             |              |                       | attacker may use this flaw to access resources that          |
+|            |                             |              |                       | will be owned by a potentially different service             |
+|            |                             |              |                       | in the future, when the UID/GID will be recycled.            |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-3843    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2019-3844        | systemd      | 241-7~deb10u5         | It was discovered that a systemd service that                |
+|            |                             |              |                       | uses DynamicUser property can get new privileges             |
+|            |                             |              |                       | through the execution of SUID binaries, which                |
+|            |                             |              |                       | would allow to create binaries owned by the service          |
+|            |                             |              |                       | transient group with the setgid bit set. A local             |
+|            |                             |              |                       | attacker may use this flaw to access resources that          |
+|            |                             |              |                       | will be owned by a potentially different service             |
+|            |                             |              |                       | in the future, when the GID will be recycled.                |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-3844    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2020-36221       | openldap     | 2.4.47+dfsg-3+deb10u4 | An integer underflow was discovered in OpenLDAP before       |
+|            |                             |              |                       | 2.4.57 leading to slapd crashes in the Certificate           |
+|            |                             |              |                       | Exact Assertion processing, resulting in denial of           |
+|            |                             |              |                       | service (schema_init.c serialNumberAndIssuerCheck).          |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-36221   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2020-36228       | openldap     | 2.4.47+dfsg-3+deb10u4 | An integer underflow was discovered in                       |
+|            |                             |              |                       | OpenLDAP before 2.4.57 leading to a slapd                    |
+|            |                             |              |                       | crash in the Certificate List Exact Assertion                |
+|            |                             |              |                       | processing, resulting in denial of service.                  |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-36228   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2020-36225       | openldap     | 2.4.47+dfsg-3+deb10u4 | A flaw was discovered in OpenLDAP before 2.4.57              |
+|            |                             |              |                       | leading to a double free and slapd crash in the              |
+|            |                             |              |                       | saslAuthzTo processing, resulting in denial of service.      |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-36225   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2020-36223       | openldap     | 2.4.47+dfsg-3+deb10u4 | A flaw was discovered in OpenLDAP before 2.4.57              |
+|            |                             |              |                       | leading to a slapd crash in the Values Return                |
+|            |                             |              |                       | Filter control handling, resulting in denial of              |
+|            |                             |              |                       | service (double free and out-of-bounds read).                |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-36223   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2020-1751        | glibc        | 2.28-10               | An out-of-bounds write vulnerability was found in            |
+|            |                             |              |                       | glibc before 2.31 when handling signal trampolines           |
+|            |                             |              |                       | on PowerPC. Specifically, the backtrace function             |
+|            |                             |              |                       | did not properly check the array bounds when storing         |
+|            |                             |              |                       | the frame address, resulting in a denial of service          |
+|            |                             |              |                       | or potential code execution. The highest threat              |
+|            |                             |              |                       | from this vulnerability is to system availability.           |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-1751    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2019-12290       | libidn2      | 2.0.5-1+deb10u1       | GNU libidn2 before 2.2.0 fails to perform the roundtrip      |
+|            |                             |              |                       | checks specified in RFC3490 Section 4.2 when converting      |
+|            |                             |              |                       | A-labels to U-labels. This makes it possible in some         |
+|            |                             |              |                       | circumstances for one domain to impersonate another.         |
+|            |                             |              |                       | By creating a malicious domain that matches a target         |
+|            |                             |              |                       | domain except for the inclusion of certain punycoded         |
+|            |                             |              |                       | Unicode characters (that would be discarded when             |
+|            |                             |              |                       | converted first to a Unicode label and then back to an       |
+|            |                             |              |                       | ASCII label), arbitrary domains can be impersonated.         |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-12290   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2020-36229       | openldap     | 2.4.47+dfsg-3+deb10u4 | A flaw was discovered in ldap_X509dn2bv in OpenLDAP          |
+|            |                             |              |                       | before 2.4.57 leading to a slapd crash in the X.509 DN       |
+|            |                             |              |                       | parsing in ad_keystring, resulting in denial of service.     |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-36229   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2020-36227       | openldap     | 2.4.47+dfsg-3+deb10u4 | A flaw was discovered in OpenLDAP before 2.4.57 leading      |
+|            |                             |              |                       | to an infinite loop in slapd with the cancel_extop           |
+|            |                             |              |                       | Cancel operation, resulting in denial of service.            |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-36227   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2020-36226       | openldap     | 2.4.47+dfsg-3+deb10u4 | A flaw was discovered in OpenLDAP before 2.4.57 leading      |
+|            |                             |              |                       | to a memch->bv_len miscalculation and slapd crash in the     |
+|            |                             |              |                       | saslAuthzTo processing, resulting in denial of service.      |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-36226   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2020-36222       | openldap     | 2.4.47+dfsg-3+deb10u4 | A flaw was discovered in OpenLDAP before 2.4.57              |
+|            |                             |              |                       | leading to an assertion failure in slapd in the              |
+|            |                             |              |                       | saslAuthzTo validation, resulting in denial of service.      |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-36222   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2020-14155       | pcre3        | 2:8.39-12             | libpcre in PCRE before 8.44 allows an integer                |
+|            |                             |              |                       | overflow via a large number after a (?C substring.           |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-14155   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2019-20454       | pcre2        | 10.32-5               | An out-of-bounds read was discovered in PCRE before          |
+|            |                             |              |                       | 10.34 when the pattern \X is JIT compiled and used           |
+|            |                             |              |                       | to match specially crafted subjects in non-UTF               |
+|            |                             |              |                       | mode. Applications that use PCRE to parse untrusted          |
+|            |                             |              |                       | input may be vulnerable to this flaw, which would            |
+|            |                             |              |                       | allow an attacker to crash the application. The flaw         |
+|            |                             |              |                       | occurs in do_extuni_no_utf in pcre2_jit_compile.c.           |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-20454   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2020-36224       | openldap     | 2.4.47+dfsg-3+deb10u4 | A flaw was discovered in OpenLDAP before 2.4.57 leading      |
+|            |                             |              |                       | to an invalid pointer free and slapd crash in the            |
+|            |                             |              |                       | saslAuthzTo processing, resulting in denial of service.      |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-36224   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2020-36230       | openldap     | 2.4.47+dfsg-3+deb10u4 | A flaw was discovered in OpenLDAP before                     |
+|            |                             |              |                       | 2.4.57 leading in an assertion failure in                    |
+|            |                             |              |                       | slapd in the X.509 DN parsing in decode.c                    |
+|            |                             |              |                       | ber_next_element, resulting in denial of service.            |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-36230   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Medium CVE-2021-3326        | glibc        | 2.28-10               | The iconv function in the GNU C Library (aka glibc           |
+|            |                             |              |                       | or libc6) 2.32 and earlier, when processing invalid          |
+|            |                             |              |                       | input sequences in the ISO-2022-JP-3 encoding, fails         |
+|            |                             |              |                       | an assertion in the code path and aborts the program,        |
+|            |                             |              |                       | potentially resulting in a denial of service.                |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2021-3326    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Low CVE-2019-14855          | gnupg2       | 2.2.12-1+deb10u1      | A flaw was found in the way certificate signatures           |
+|            |                             |              |                       | could be forged using collisions found in the                |
+|            |                             |              |                       | SHA-1 algorithm. An attacker could use this                  |
+|            |                             |              |                       | weakness to create forged certificate signatures.            |
+|            |                             |              |                       | This issue affects GnuPG versions before 2.2.18.             |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-14855   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Low CVE-2019-15847          | gcc-8        | 8.3.0-6               | The POWER9 backend in GNU Compiler Collection (GCC)          |
+|            |                             |              |                       | before version 10 could optimize multiple calls of           |
+|            |                             |              |                       | the __builtin_darn intrinsic into a single call, thus        |
+|            |                             |              |                       | reducing the entropy of the random number generator. This    |
+|            |                             |              |                       | occurred because a volatile operation was not specified.     |
+|            |                             |              |                       | For example, within a single execution of a program, the     |
+|            |                             |              |                       | output of every __builtin_darn() call may be the same.       |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-15847   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Low CVE-2016-10228          | glibc        | 2.28-10               | The iconv program in the GNU C Library (aka glibc or         |
+|            |                             |              |                       | libc6) 2.31 and earlier, when invoked with multiple          |
+|            |                             |              |                       | suffixes in the destination encoding (TRANSLATE              |
+|            |                             |              |                       | or IGNORE) along with the -c option, enters an               |
+|            |                             |              |                       | infinite loop when processing invalid multi-byte             |
+|            |                             |              |                       | input sequences, leading to a denial of service.             |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2016-10228   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Low CVE-2019-1551           | openssl      | 1.1.1d-0+deb10u4      | There is an overflow bug in the x64_64 Montgomery            |
+|            |                             |              |                       | squaring procedure used in exponentiation with 512-bit       |
+|            |                             |              |                       | moduli. No EC algorithms are affected. Analysis suggests     |
+|            |                             |              |                       | that attacks against 2-prime RSA1024, 3-prime RSA1536,       |
+|            |                             |              |                       | and DSA1024 as a result of this defect would be very         |
+|            |                             |              |                       | difficult to perform and are not believed likely.            |
+|            |                             |              |                       | Attacks against DH512 are considered just feasible.          |
+|            |                             |              |                       | However, for an attack the target would have to re-use       |
+|            |                             |              |                       | the DH512 private key, which is not recommended anyway.      |
+|            |                             |              |                       | Also applications directly using the low level API           |
+|            |                             |              |                       | BN_mod_exp may be affected if they use BN_FLG_CONSTTIME.     |
+|            |                             |              |                       | Fixed in OpenSSL 1.1.1e (Affected 1.1.1-1.1.1d).             |
+|            |                             |              |                       | Fixed in OpenSSL 1.0.2u (Affected 1.0.2-1.0.2t).             |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-1551    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Low CVE-2018-7169           | shadow       | 1:4.5-1.1             | An issue was discovered in shadow 4.5. newgidmap (in         |
+|            |                             |              |                       | shadow-utils) is setuid and allows an unprivileged           |
+|            |                             |              |                       | user to be placed in a user namespace where                  |
+|            |                             |              |                       | setgroups(2) is permitted. This allows an attacker           |
+|            |                             |              |                       | to remove themselves from a supplementary group,             |
+|            |                             |              |                       | which may allow access to certain filesystem paths           |
+|            |                             |              |                       | if the administrator has used "group blacklisting"           |
+|            |                             |              |                       | (e.g., chmod g-rwx) to restrict access to paths.             |
+|            |                             |              |                       | This flaw effectively reverts a security feature in          |
+|            |                             |              |                       | the kernel (in particular, the /proc/self/setgroups          |
+|            |                             |              |                       | knob) to prevent this sort of privilege escalation.          |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2018-7169    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Low CVE-2020-1752           | glibc        | 2.28-10               | A use-after-free vulnerability introduced in glibc           |
+|            |                             |              |                       | upstream version 2.14 was found in the way the tilde         |
+|            |                             |              |                       | expansion was carried out. Directory paths containing        |
+|            |                             |              |                       | an initial tilde followed by a valid username were           |
+|            |                             |              |                       | affected by this issue. A local attacker could exploit       |
+|            |                             |              |                       | this flaw by creating a specially crafted path that, when    |
+|            |                             |              |                       | processed by the glob function, would potentially lead to    |
+|            |                             |              |                       | arbitrary code execution. This was fixed in version 2.32.    |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-1752    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Low CVE-2019-19126          | glibc        | 2.28-10               | On the x86-64 architecture, the GNU C Library (aka glibc)    |
+|            |                             |              |                       | before 2.31 fails to ignore the LD_PREFER_MAP_32BIT_EXEC     |
+|            |                             |              |                       | environment variable during program execution after          |
+|            |                             |              |                       | a security transition, allowing local attackers to           |
+|            |                             |              |                       | restrict the possible mapping addresses for loaded           |
+|            |                             |              |                       | libraries and thus bypass ASLR for a setuid program.         |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-19126   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Low CVE-2016-2781           | coreutils    | 8.30-3                | chroot in GNU coreutils, when used with --userspec,          |
+|            |                             |              |                       | allows local users to escape to the parent session           |
+|            |                             |              |                       | via a crafted TIOCSTI ioctl call, which pushes               |
+|            |                             |              |                       | characters to the terminal's input buffer.                   |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2016-2781    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Low CVE-2020-6096           | glibc        | 2.28-10               | An exploitable signed comparison vulnerability exists in     |
+|            |                             |              |                       | the ARMv7 memcpy() implementation of GNU glibc 2.30.9000.    |
+|            |                             |              |                       | Calling memcpy() (on ARMv7 targets that utilize the GNU      |
+|            |                             |              |                       | glibc implementation) with a negative value for the 'num'    |
+|            |                             |              |                       | parameter results in a signed comparison vulnerability.      |
+|            |                             |              |                       | If an attacker underflows the 'num' parameter to             |
+|            |                             |              |                       | memcpy(), this vulnerability could lead to undefined         |
+|            |                             |              |                       | behavior such as writing to out-of-bounds memory and         |
+|            |                             |              |                       | potentially remote code execution. Furthermore, this         |
+|            |                             |              |                       | memcpy() implementation allows for program execution         |
+|            |                             |              |                       | to continue in scenarios where a segmentation fault          |
+|            |                             |              |                       | or crash should have occurred. The dangers occur             |
+|            |                             |              |                       | in that subsequent execution and iterations of this          |
+|            |                             |              |                       | code will be executed with this corrupted data.              |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-6096    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Low CVE-2019-17543          | lz4          | 1.8.3-1               | LZ4 before 1.9.2 has a heap-based buffer overflow            |
+|            |                             |              |                       | in LZ4_write32 (related to LZ4_compress_destSize),           |
+|            |                             |              |                       | affecting applications that call LZ4_compress_fast           |
+|            |                             |              |                       | with a large input. (This issue can also lead to             |
+|            |                             |              |                       | data corruption.) NOTE: the vendor states "only a few        |
+|            |                             |              |                       | specific / uncommon usages of the API are at risk."          |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-17543   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Low CVE-2019-13627          | libgcrypt20  | 1.8.4-5               | It was discovered that there was a ECDSA timing attack       |
+|            |                             |              |                       | in the libgcrypt20 cryptographic library. Version            |
+|            |                             |              |                       | affected: 1.8.4-5, 1.7.6-2+deb9u3, and 1.6.3-2+deb8u4.       |
+|            |                             |              |                       | Versions fixed: 1.8.5-2 and 1.6.3-2+deb8u7.                  |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-13627   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Low CVE-2020-10029          | glibc        | 2.28-10               | The GNU C Library (aka glibc or libc6) before 2.32 could     |
+|            |                             |              |                       | overflow an on-stack buffer during range reduction if        |
+|            |                             |              |                       | an input to an 80-bit long double function contains          |
+|            |                             |              |                       | a non-canonical bit pattern, a seen when passing a           |
+|            |                             |              |                       | 0x5d414141414141410000 value to sinl on x86 targets. This    |
+|            |                             |              |                       | is related to sysdeps/ieee754/ldbl-96/e_rem_pio2l.c.         |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-10029   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2019-9923    | tar          | 1.30+dfsg-6           | pax_decode_header in sparse.c in GNU Tar before 1.32         |
+|            |                             |              |                       | had a NULL pointer dereference when parsing certain          |
+|            |                             |              |                       | archives that have malformed extended headers.               |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-9923    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2019-18276   | bash         | 5.0-4                 | An issue was discovered in disable_priv_mode in shell.c in   |
+|            |                             |              |                       | GNU Bash through 5.0 patch 11. By default, if Bash is run    |
+|            |                             |              |                       | with its effective UID not equal to its real UID, it will    |
+|            |                             |              |                       | drop privileges by setting its effective UID to its real     |
+|            |                             |              |                       | UID. However, it does so incorrectly. On Linux and other     |
+|            |                             |              |                       | systems that support "saved UID" functionality, the saved    |
+|            |                             |              |                       | UID is not dropped. An attacker with command execution in    |
+|            |                             |              |                       | the shell can use "enable -f" for runtime loading of a new   |
+|            |                             |              |                       | builtin, which can be a shared object that calls setuid()    |
+|            |                             |              |                       | and therefore regains privileges. However, binaries          |
+|            |                             |              |                       | running with an effective UID of 0 are unaffected.           |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-18276   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2019-1010024 | glibc        | 2.28-10               | ** DISPUTED ** GNU Libc current is affected by: Mitigation   |
+|            |                             |              |                       | bypass. The impact is: Attacker may bypass ASLR using        |
+|            |                             |              |                       | cache of thread stack and heap. The component is:            |
+|            |                             |              |                       | glibc. NOTE: Upstream comments indicate "this is being       |
+|            |                             |              |                       | treated as a non-security bug and no real threat."           |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-1010024 |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2010-4052    | glibc        | 2.28-10               | Stack consumption vulnerability in the regcomp               |
+|            |                             |              |                       | implementation in the GNU C Library (aka glibc or            |
+|            |                             |              |                       | libc6) through 2.11.3, and 2.12.x through 2.12.2,            |
+|            |                             |              |                       | allows context-dependent attackers to cause a                |
+|            |                             |              |                       | denial of service (resource exhaustion) via a                |
+|            |                             |              |                       | regular expression containing adjacent repetition            |
+|            |                             |              |                       | operators, as demonstrated by a {10,}{10,}{10,}{10,}         |
+|            |                             |              |                       | sequence in the proftpd.gnu.c exploit for ProFTPD.           |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2010-4052    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2017-16231   | pcre3        | 2:8.39-12             | ** DISPUTED ** In PCRE 8.41, after compiling, a pcretest     |
+|            |                             |              |                       | load test PoC produces a crash overflow in the function      |
+|            |                             |              |                       | match() in pcre_exec.c because of a self-recursive           |
+|            |                             |              |                       | call. NOTE: third parties dispute the relevance of           |
+|            |                             |              |                       | this report, noting that there are options that can          |
+|            |                             |              |                       | be used to limit the amount of stack that is used.           |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2017-16231   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2017-7245    | pcre3        | 2:8.39-12             | Stack-based buffer overflow in the pcre32_copy_substring     |
+|            |                             |              |                       | function in pcre_get.c in libpcre1 in PCRE                   |
+|            |                             |              |                       | 8.40 allows remote attackers to cause a denial               |
+|            |                             |              |                       | of service (WRITE of size 4) or possibly have                |
+|            |                             |              |                       | unspecified other impact via a crafted file.                 |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2017-7245    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2010-4051    | glibc        | 2.28-10               | The regcomp implementation in the GNU C Library (aka         |
+|            |                             |              |                       | glibc or libc6) through 2.11.3, and 2.12.x through 2.12.2,   |
+|            |                             |              |                       | allows context-dependent attackers to cause a denial         |
+|            |                             |              |                       | of service (application crash) via a regular expression      |
+|            |                             |              |                       | containing adjacent bounded repetitions that bypass the      |
+|            |                             |              |                       | intended RE_DUP_MAX limitation, as demonstrated by a         |
+|            |                             |              |                       | {10,}{10,}{10,}{10,}{10,} sequence in the proftpd.gnu.c      |
+|            |                             |              |                       | exploit for ProFTPD, related to a "RE_DUP_MAX overflow."     |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2010-4051    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2017-7246    | pcre3        | 2:8.39-12             | Stack-based buffer overflow in the pcre32_copy_substring     |
+|            |                             |              |                       | function in pcre_get.c in libpcre1 in PCRE 8.40              |
+|            |                             |              |                       | allows remote attackers to cause a denial of                 |
+|            |                             |              |                       | service (WRITE of size 268) or possibly have                 |
+|            |                             |              |                       | unspecified other impact via a crafted file.                 |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2017-7246    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2019-20838   | pcre3        | 2:8.39-12             | libpcre in PCRE before 8.43 allows a subject                 |
+|            |                             |              |                       | buffer over-read in JIT when UTF is disabled,                |
+|            |                             |              |                       | and \X or \R has more than one fixed                         |
+|            |                             |              |                       | quantifier, a related issue to CVE-2019-20454.               |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-20838   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2017-11164   | pcre3        | 2:8.39-12             | In PCRE 8.41, the OP_KETRMAX feature in the match function   |
+|            |                             |              |                       | in pcre_exec.c allows stack exhaustion (uncontrolled         |
+|            |                             |              |                       | recursion) when processing a crafted regular expression.     |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2017-11164   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2019-19882   | shadow       | 1:4.5-1.1             | shadow 4.8, in certain circumstances affecting at            |
+|            |                             |              |                       | least Gentoo, Arch Linux, and Void Linux, allows local       |
+|            |                             |              |                       | users to obtain root access because setuid programs are      |
+|            |                             |              |                       | misconfigured. Specifically, this affects shadow 4.8         |
+|            |                             |              |                       | when compiled using --with-libpam but without explicitly     |
+|            |                             |              |                       | passing --disable-account-tools-setuid, and without a        |
+|            |                             |              |                       | PAM configuration suitable for use with setuid account       |
+|            |                             |              |                       | management tools. This combination leads to account          |
+|            |                             |              |                       | management tools (groupadd, groupdel, groupmod, useradd,     |
+|            |                             |              |                       | userdel, usermod) that can easily be used by unprivileged    |
+|            |                             |              |                       | local users to escalate privileges to root in multiple       |
+|            |                             |              |                       | ways. This issue became much more relevant in approximately  |
+|            |                             |              |                       | December 2019 when an unrelated bug was fixed (i.e.,         |
+|            |                             |              |                       | the chmod calls to suidusbins were fixed in the upstream     |
+|            |                             |              |                       | Makefile which is now included in the release version 4.8).  |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-19882   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2019-1010025 | glibc        | 2.28-10               | ** DISPUTED ** GNU Libc current is affected by:              |
+|            |                             |              |                       | Mitigation bypass. The impact is: Attacker may guess         |
+|            |                             |              |                       | the heap addresses of pthread_created thread. The            |
+|            |                             |              |                       | component is: glibc. NOTE: the vendor's position             |
+|            |                             |              |                       | is "ASLR bypass itself is not a vulnerability."              |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-1010025 |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2019-1010022 | glibc        | 2.28-10               | ** DISPUTED ** GNU Libc current is affected by: Mitigation   |
+|            |                             |              |                       | bypass. The impact is: Attacker may bypass stack guard       |
+|            |                             |              |                       | protection. The component is: nptl. The attack vector        |
+|            |                             |              |                       | is: Exploit stack buffer overflow vulnerability and          |
+|            |                             |              |                       | use this bypass vulnerability to bypass stack guard.         |
+|            |                             |              |                       | NOTE: Upstream comments indicate "this is being              |
+|            |                             |              |                       | treated as a non-security bug and no real threat."           |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-1010022 |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2007-5686    | shadow       | 1:4.5-1.1             | initscripts in rPath Linux 1 sets insecure permissions for   |
+|            |                             |              |                       | the /var/log/btmp file, which allows local users to obtain   |
+|            |                             |              |                       | sensitive information regarding authentication attempts.     |
+|            |                             |              |                       |  NOTE: because sshd detects the insecure permissions and     |
+|            |                             |              |                       | does not log certain events, this also prevents sshd from    |
+|            |                             |              |                       | logging failed authentication attempts by remote attackers.  |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2007-5686    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2010-4756    | glibc        | 2.28-10               | The glob implementation in the GNU C Library (aka glibc      |
+|            |                             |              |                       | or libc6) allows remote authenticated users to cause a       |
+|            |                             |              |                       | denial of service (CPU and memory consumption) via crafted   |
+|            |                             |              |                       | glob expressions that do not match any pathnames, as         |
+|            |                             |              |                       | demonstrated by glob expressions in STAT commands to an      |
+|            |                             |              |                       | FTP daemon, a different vulnerability than CVE-2010-2632.    |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2010-4756    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2018-20796   | glibc        | 2.28-10               | In the GNU C Library (aka glibc or libc6) through            |
+|            |                             |              |                       | 2.29, check_dst_limits_calc_pos_1 in posix/regexec.c         |
+|            |                             |              |                       | has Uncontrolled Recursion, as demonstrated                  |
+|            |                             |              |                       | by '(\227|)(\\1\\1|t1|\\\2537)+' in grep.                    |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2018-20796   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2019-9192    | glibc        | 2.28-10               | ** DISPUTED ** In the GNU C Library (aka glibc or            |
+|            |                             |              |                       | libc6) through 2.29, check_dst_limits_calc_pos_1             |
+|            |                             |              |                       | in posix/regexec.c has Uncontrolled Recursion, as            |
+|            |                             |              |                       | demonstrated by '(|)(\\1\\1)*' in grep, a different          |
+|            |                             |              |                       | issue than CVE-2018-20796. NOTE: the software                |
+|            |                             |              |                       | maintainer disputes that this is a vulnerability because     |
+|            |                             |              |                       | the behavior occurs only with a crafted pattern.             |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-9192    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2019-1010023 | glibc        | 2.28-10               | ** DISPUTED ** GNU Libc current is affected by: Re-mapping   |
+|            |                             |              |                       | current loaded library with malicious ELF file. The impact   |
+|            |                             |              |                       | is: In worst case attacker may evaluate privileges. The      |
+|            |                             |              |                       | component is: libld. The attack vector is: Attacker sends    |
+|            |                             |              |                       | 2 ELF files to victim and asks to run ldd on it. ldd         |
+|            |                             |              |                       | execute code. NOTE: Upstream comments indicate "this is      |
+|            |                             |              |                       | being treated as a non-security bug and no real threat."     |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-1010023 |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2013-4235    | shadow       | 1:4.5-1.1             | shadow: TOCTOU (time-of-check time-of-use) race              |
+|            |                             |              |                       | condition when copying and removing directory trees          |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2013-4235    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2019-9893    | libseccomp   | 2.3.3-4               | libseccomp before 2.4.0 did not correctly generate 64-bit    |
+|            |                             |              |                       | syscall argument comparisons using the arithmetic operators  |
+|            |                             |              |                       | (LT, GT, LE, GE), which might able to lead to bypassing      |
+|            |                             |              |                       | seccomp filters and potential privilege escalations.         |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-9893    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2018-1000654 | libtasn1-6   | 4.13-3                | GNU Libtasn1-4.13 libtasn1-4.13 version libtasn1-4.13,       |
+|            |                             |              |                       | libtasn1-4.12 contains a DoS, specifically CPU usage         |
+|            |                             |              |                       | will reach 100% when running asn1Paser against the POC       |
+|            |                             |              |                       | due to an issue in _asn1_expand_object_id(p_tree), after     |
+|            |                             |              |                       | a long time, the program will be killed. This attack         |
+|            |                             |              |                       | appears to be exploitable via parsing a crafted file.        |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2018-1000654 |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2011-3374    | apt          | 1.8.2.2               | It was found that apt-key in apt, all versions, do not       |
+|            |                             |              |                       | correctly validate gpg keys with the master keyring,         |
+|            |                             |              |                       | leading to a potential man-in-the-middle attack.             |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2011-3374    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2011-4116    | perl         | 5.28.1-6+deb10u1      | _is_safe in the File::Temp module for                        |
+|            |                             |              |                       | Perl does not properly handle symlinks.                      |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2011-4116    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2007-6755    | openssl      | 1.1.1d-0+deb10u4      | The NIST SP 800-90A default statement of the Dual Elliptic   |
+|            |                             |              |                       | Curve Deterministic Random Bit Generation (Dual_EC_DRBG)     |
+|            |                             |              |                       | algorithm contains point Q constants with a possible         |
+|            |                             |              |                       | relationship to certain "skeleton key" values, which         |
+|            |                             |              |                       | might allow context-dependent attackers to defeat            |
+|            |                             |              |                       | cryptographic protection mechanisms by leveraging knowledge  |
+|            |                             |              |                       | of those values.  NOTE: this is a preliminary CVE for        |
+|            |                             |              |                       | Dual_EC_DRBG; future research may provide additional         |
+|            |                             |              |                       | details about point Q and associated attacks, and could      |
+|            |                             |              |                       | potentially lead to a RECAST or REJECT of this CVE.          |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2007-6755    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2010-0928    | openssl      | 1.1.1d-0+deb10u4      | OpenSSL 0.9.8i on the Gaisler Research LEON3 SoC on the      |
+|            |                             |              |                       | Xilinx Virtex-II Pro FPGA uses a Fixed Width Exponentiation  |
+|            |                             |              |                       | (FWE) algorithm for certain signature calculations, and does |
+|            |                             |              |                       | not verify the signature before providing it to a caller,    |
+|            |                             |              |                       | which makes it easier for physically proximate attackers     |
+|            |                             |              |                       | to determine the private key via a modified supply voltage   |
+|            |                             |              |                       | for the microprocessor, related to a "fault-based attack."   |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2010-0928    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2019-19924   | sqlite3      | 3.27.2-3+deb10u1      | SQLite 3.30.1 mishandles certain parser-tree rewriting,      |
+|            |                             |              |                       | related to expr.c, vdbeaux.c, and window.c. This is caused   |
+|            |                             |              |                       | by incorrect sqlite3WindowRewrite() error handling.          |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-19924   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2019-19603   | sqlite3      | 3.27.2-3+deb10u1      | SQLite 3.30.1 mishandles certain SELECT statements with      |
+|            |                             |              |                       | a nonexistent VIEW, leading to an application crash.         |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-19603   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2020-13631   | sqlite3      | 3.27.2-3+deb10u1      | SQLite before 3.32.0 allows a virtual table                  |
+|            |                             |              |                       | to be renamed to the name of one of its shadow               |
+|            |                             |              |                       | tables, related to alter.c and build.c.                      |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-13631   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2019-19645   | sqlite3      | 3.27.2-3+deb10u1      | alter.c in SQLite through 3.30.1 allows attackers to trigger |
+|            |                             |              |                       | infinite recursion via certain types of self-referential     |
+|            |                             |              |                       | views in conjunction with ALTER TABLE statements.            |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-19645   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2020-11656   | sqlite3      | 3.27.2-3+deb10u1      | In SQLite through 3.31.1, the ALTER TABLE implementation     |
+|            |                             |              |                       | has a use-after-free, as demonstrated by an ORDER BY         |
+|            |                             |              |                       | clause that belongs to a compound SELECT statement.          |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-11656   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2019-19244   | sqlite3      | 3.27.2-3+deb10u1      | sqlite3Select in select.c in SQLite 3.30.1 allows a          |
+|            |                             |              |                       | crash if a sub-select uses both DISTINCT and window          |
+|            |                             |              |                       | functions, and also has certain ORDER BY usage.              |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-19244   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2017-17740   | openldap     | 2.4.47+dfsg-3+deb10u4 | contrib/slapd-modules/nops/nops.c in OpenLDAP through        |
+|            |                             |              |                       | 2.4.45, when both the nops module and the memberof overlay   |
+|            |                             |              |                       | are enabled, attempts to free a buffer that was allocated on |
+|            |                             |              |                       | the stack, which allows remote attackers to cause a denial   |
+|            |                             |              |                       | of service (slapd crash) via a member MODDN operation.       |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2017-17740   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2017-18018   | coreutils    | 8.30-3                | In GNU Coreutils through 8.29, chown-core.c in chown         |
+|            |                             |              |                       | and chgrp does not prevent replacement of a plain file       |
+|            |                             |              |                       | with a symlink during use of the POSIX "-R -L" options,      |
+|            |                             |              |                       | which allows local users to modify the ownership             |
+|            |                             |              |                       | of arbitrary files by leveraging a race condition.           |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2017-18018   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2020-24659   | gnutls28     | 3.6.7-4+deb10u5       | An issue was discovered in GnuTLS before 3.6.15. A           |
+|            |                             |              |                       | server can trigger a NULL pointer dereference in a           |
+|            |                             |              |                       | TLS 1.3 client if a no_renegotiation alert is sent           |
+|            |                             |              |                       | with unexpected timing, and then an invalid second           |
+|            |                             |              |                       | handshake occurs. The crash happens in the application's     |
+|            |                             |              |                       | error handling path, where the gnutls_deinit function        |
+|            |                             |              |                       | is called after detecting a handshake failure.               |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-24659   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2011-3389    | gnutls28     | 3.6.7-4+deb10u5       | The SSL protocol, as used in certain configurations          |
+|            |                             |              |                       | in Microsoft Windows and Microsoft Internet Explorer,        |
+|            |                             |              |                       | Mozilla Firefox, Google Chrome, Opera, and other             |
+|            |                             |              |                       | products, encrypts data by using CBC mode with chained       |
+|            |                             |              |                       | initialization vectors, which allows man-in-the-middle       |
+|            |                             |              |                       | attackers to obtain plaintext HTTP headers via a blockwise   |
+|            |                             |              |                       | chosen-boundary attack (BCBA) on an HTTPS session, in        |
+|            |                             |              |                       | conjunction with JavaScript code that uses (1) the HTML5     |
+|            |                             |              |                       | WebSocket API, (2) the Java URLConnection API, or (3)        |
+|            |                             |              |                       | the Silverlight WebClient API, aka a "BEAST" attack.         |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2011-3389    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2021-20193   | tar          | 1.30+dfsg-6           |   https://security-tracker.debian.org/tracker/CVE-2021-20193 |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2017-14159   | openldap     | 2.4.47+dfsg-3+deb10u4 | slapd in OpenLDAP 2.4.45 and earlier creates a PID file      |
+|            |                             |              |                       | after dropping privileges to a non-root account, which       |
+|            |                             |              |                       | might allow local users to kill arbitrary processes by       |
+|            |                             |              |                       | leveraging access to this non-root account for PID file      |
+|            |                             |              |                       | modification before a root script executes a "kill `cat      |
+|            |                             |              |                       | /pathname`" command, as demonstrated by openldap-initscript. |
+|            |                             |              |                       |  https://security-tracker.debian.org/tracker/CVE-2017-14159  |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2005-2541    | tar          | 1.30+dfsg-6           | Tar 1.15.1 does not properly warn the user when              |
+|            |                             |              |                       | extracting setuid or setgid files, which may allow           |
+|            |                             |              |                       | local users or remote attackers to gain privileges.          |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2005-2541    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2018-6829    | libgcrypt20  | 1.8.4-5               | cipher/elgamal.c in Libgcrypt through 1.8.2, when            |
+|            |                             |              |                       | used to encrypt messages directly, improperly encodes        |
+|            |                             |              |                       | plaintexts, which allows attackers to obtain sensitive       |
+|            |                             |              |                       | information by reading ciphertext data (i.e., it does        |
+|            |                             |              |                       | not have semantic security in face of a ciphertext-only      |
+|            |                             |              |                       | attack). The Decisional Diffie-Hellman (DDH) assumption      |
+|            |                             |              |                       | does not hold for Libgcrypt's ElGamal implementation.        |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2018-6829    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2019-20386   | systemd      | 241-7~deb10u5         | An issue was discovered in button_open in                    |
+|            |                             |              |                       | login/logind-button.c in systemd before 243. When executing  |
+|            |                             |              |                       | the udevadm trigger command, a memory leak may occur.        |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2019-20386   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2013-4392    | systemd      | 241-7~deb10u5         | systemd, when updating file permissions, allows local users  |
+|            |                             |              |                       | to change the permissions and SELinux security contexts for  |
+|            |                             |              |                       | arbitrary files via a symlink attack on unspecified files.   |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2013-4392    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2020-15719   | openldap     | 2.4.47+dfsg-3+deb10u4 | libldap in certain third-party OpenLDAP packages             |
+|            |                             |              |                       | has a certificate-validation flaw when the                   |
+|            |                             |              |                       | third-party package is asserting RFC6125 support.            |
+|            |                             |              |                       | It considers CN even when there is a non-matching            |
+|            |                             |              |                       | subjectAltName (SAN). This is fixed in, for example,         |
+|            |                             |              |                       | openldap-2.4.46-10.el8 in Red Hat Enterprise Linux.          |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-15719   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2020-13776   | systemd      | 241-7~deb10u5         | systemd through v245 mishandles numerical usernames          |
+|            |                             |              |                       | such as ones composed of decimal digits or 0x                |
+|            |                             |              |                       | followed by hex digits, as demonstrated by use of            |
+|            |                             |              |                       | root privileges when privileges of the 0x0 user              |
+|            |                             |              |                       | account were intended. NOTE: this issue exists               |
+|            |                             |              |                       | because of an incomplete fix for CVE-2017-1000082.           |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2020-13776   |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Unapproved | Negligible CVE-2015-3276    | openldap     | 2.4.47+dfsg-3+deb10u4 | The nss_parse_ciphers function in libraries/libldap/tls_m.c  |
+|            |                             |              |                       | in OpenLDAP does not properly parse OpenSSL-style            |
+|            |                             |              |                       | multi-keyword mode cipher strings, which might cause a       |
+|            |                             |              |                       | weaker than intended cipher to be used and allow remote      |
+|            |                             |              |                       | attackers to have unspecified impact via unknown vectors.    |
+|            |                             |              |                       | https://security-tracker.debian.org/tracker/CVE-2015-3276    |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
+| Approved   | Unknown CVE-2020-27618      | glibc        | 2.28-10               |   https://security-tracker.debian.org/tracker/CVE-2020-27618 |
++------------+-----------------------------+--------------+-----------------------+--------------------------------------------------------------+
