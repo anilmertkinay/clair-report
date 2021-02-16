@@ -1,0 +1,19 @@
+arminc image ve exec'i ile:
+
+images to load:
+arminc/clair-db
+arminc/clair-local-scan
+
+https://hub.docker.com/r/arminc/clair-db
+https://hub.docker.com/r/arminc/clair-local-scan
+
+docker run -dt -p 5432:5432 -d --name db arminc/clair-db:latest
+docker run -dt -p 6060:6060 --link db:postgres -d --name clair arminc/clair-local-scan:latest
+
+https://github.com/arminc/clair-scanner
+# ben buradan direkt executable çekerek çalıştım.
+# bunun yerine projeyi clone ve build ederek de çalışılabilir.
+
+coreos clair'ı:
+
+wget https://github.com/quay/clair/releases/download/v4.0.1/clair-v4.0.1.tar.gz
